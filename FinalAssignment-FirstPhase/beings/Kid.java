@@ -1,5 +1,6 @@
 package beings;
 import java.util.Date;
+import java.util.*;
 
 public class Kid extends Beings
 {
@@ -14,5 +15,16 @@ public class Kid extends Beings
 		this.birthday = _birthday;
 		this.purchasedProducts = _purchasedProducts;
 		this.placeOfBirth = _placeOfBirth;
+	}
+	
+	public Date getBirthday()
+	{
+		return this.birthday;
+	}
+	
+	public List getListOfPurchasedProducts()
+	{
+		return this.purchasedProducts;
+			
 	}
 }
