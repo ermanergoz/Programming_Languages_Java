@@ -16,7 +16,7 @@ public class Product
         this.prizeTicket=_prizeTicket;
     }
 
-	//Setters
+    //Setters
     public void descriptionSetter(String _description)
     {
         this.description=_description;
@@ -34,12 +34,12 @@ public class Product
         this.prizeTicket=_prizeTicket;
     }
 
-	//Getters
+    //Getters
     public String descriptionGetter()
     {
         return description;
     }
-    public long barcodeGetter()
+    public long getBarcode()
     {
         return barcode;
     }

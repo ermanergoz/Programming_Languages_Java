@@ -1,15 +1,17 @@
 package beings;
+import model.Product;
+
 import java.util.Date;
 import java.util.*;
 
 public class Kid extends Beings
 {
     private Date birthday;
-    public List<String> purchasedProducts;
+    private List<Product> purchasedProducts;
     String placeOfBirth;
 
     //Constructor
-    public Kid (int _code, String _name, Date _birthday, List<String> _purchasedProducts, String _placeOfBirth)
+    public Kid (int _code, String _name, Date _birthday, List<Product> _purchasedProducts, String _placeOfBirth)
     {
         super(_code, _name);
 
@@ -38,7 +40,7 @@ public class Kid extends Beings
     {
         this.birthday=_birthday;
     }
-    public void setListOfPurchasedProducts(List<String> _purchasedProducts)
+    public void setListOfPurchasedProducts(List<Product> _purchasedProducts)
     {
         this.purchasedProducts=_purchasedProducts;
 
