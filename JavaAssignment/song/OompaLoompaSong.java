@@ -46,12 +46,12 @@ public class OompaLoompaSong
         }
 
         String song = "";
-        Random rand = new Random();
+        Random randomIndex = new Random();
         int randomLine;
 
         for (int i = 0; i < numberOfLines; ++i)
         {
-            randomLine = rand.nextInt(22);
+            randomLine = randomIndex.nextInt(22);
             song = song.concat(songLines.get(randomLine));
             song = song.concat("\n");
         }

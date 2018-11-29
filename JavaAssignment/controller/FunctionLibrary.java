@@ -28,7 +28,7 @@ public class FunctionLibrary
 
     public void registerOompaLoompa(int code, String name, int height, String favoriteFood, int howMany)
     {
-        for(int ctr=0; i<howMany; ++ctr)
+        for(int ctr=0; ctr<howMany; ++ctr)
         {
             OompaLoompa oompaLoompa = new OompaLoompa(code, name, height, favoriteFood);
             oompaLoompaList.add(oompaLoompa);
@@ -60,10 +60,10 @@ public class FunctionLibrary
             long barcode = userInput.nextLong();
             int randomizedProductIndex=0;
 
-            Random rand = new Random();
+            Random randomIndex = new Random();
             while(productList.get(randomizedProductIndex).getBarcode()!=barcode)
             {
-                randomizedProductIndex = rand.nextInt(productList.size()-1);
+                randomizedProductIndex = randomIndex.nextInt(productList.size()-1);
             }
 
             kid.getListOfPurchasedProducts().add(productList.get(randomizedProductIndex));
@@ -73,4 +73,24 @@ public class FunctionLibrary
         else
             System.out.println("you messed up");
     }
+	
+	public String codeGenerator()
+	{
+		String charList = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+		Random randomIndex = new Random();
+		int randomizedCharIndex;
+		String code ="";
+		
+		while(code.length()<11)
+		{
+			randomizedCharIndex = randomIndex.nextInt(charList.length()-1);
+			code+=(charList.charAt(randomizedCharIndex));
+		}
+		return code;
+	}
+	
+	public void ruffleTickets()
+	{
+		
+	}
 }
