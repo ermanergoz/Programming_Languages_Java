@@ -9,8 +9,6 @@ public class Main
 {
     public static void main(String args[])
     {
-        FunctionLibrary song = new FunctionLibrary();
 
-        System.out.println(song.codeGenerator());
     }
 }
