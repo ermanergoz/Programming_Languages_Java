@@ -17,7 +17,7 @@ public class FunctionLibrary
 {
     List<Kid> kidList = new ArrayList <>();
 
-    public void registerKid(/*List<Product> purchasedProducts,*/  int howMany)
+    public void registerKid(int howMany)
     {
         Scanner userInput = new Scanner(System.in);
 
@@ -173,18 +173,31 @@ public class FunctionLibrary
             productList.get(randomizedTicketIndex).setPrizeTicket(goldenTicket);
         }
     }
-	
-	public void listPrizeTickets()
-	{
-		for(int i=0; i<productList.size();++i)
-		{
-			System.out.println(productList.get(i).getDescription()+
-			"Barcode: "+productList.get(i).getBarcode()+"\n");
-			
-			if(productList.get(i).getPrizeTicket()!=null)	//use get(i) instead of [i]
-				System.out.println("This product contains Golden Ticket!");
+
+    public void listPrizeTickets()
+    {
+        for(int i=0; i<productList.size();++i)
+        {
+            System.out.println(productList.get(i).getDescription()+
+                    "Barcode: "+productList.get(i).getBarcode()+"\n");
+
+            if(productList.get(i).getPrizeTicket()!=null)	//use get(i) instead of [i]
+                System.out.println("This product contains Golden Ticket!");
+            else if(productList.get(i).getPrizeTicket()==null)
+                System.out.println("This product does not contain a Golden Ticket!");
 			else
-				System.out.println("This product does not contain a Golden Ticket!");
-		}
-	}
+				System.out.println("N/A");
+        }
+    }
+
+    public void listRaffledTickets()
+    {
+        for(int i=0; i<productList.size();++i)
+        {
+            if(productList.get(i).getPrizeTicket()!=null && 
+                    productList.get(i).getPrizeTicket().isRaffled(productList.get(i).getPrizeTicket()))	//use get(i) instead of [i]
+                System.out.println("This ticket is already raffled. Ticket code: "+productList.get(i).getPrizeTicket().getTicketCode());
+            
+        }
+    }
 }
