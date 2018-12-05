@@ -50,22 +50,30 @@ public class Main
                     new FunctionLibrary().listPrizeTickets();
                     break;
                 case 3:
-                    System.out.println("How many lines should it be?");
+                    System.out.println("How many lines should it have?");
                     System.out.println(new OompaLoompaSong(scanner.nextInt()).sing());
                     break;
                 case 4:
-                    System.out.println("How many kids to register?");
+                    System.out.println("How many kids are there to register?");
                     new FunctionLibrary().registerKid(scanner.nextInt());
                     break;
 				case 5:
+					System.out.println("How many oompaloompas are there to register?");
+                    new FunctionLibrary().registerOompaLoompa(scanner.nextInt());
                     break;
 				case 6:
+					System.out.println("How many products are there to register?");
+                    new FunctionLibrary().registerProducts(scanner.nextInt());
                     break;
 				case 7:
+					System.out.println("How many tickets do you want to raffle?");
+                    new FunctionLibrary().ruffleTickets(scanner.nextInt());
                     break;
 				case 8:
+					//TO DO
                     break;
 				case 9:
+					//TO DO
                     break;
                 case 10:
                     break;
