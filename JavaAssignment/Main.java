@@ -4,6 +4,7 @@ import model.GoldenTicket;
 import model.Product;
 import song.OompaLoompaSong;
 import controller.FunctionLibrary;
+import java.util.Scanner;
 
 /*
 1 - Register Prize tickets
@@ -21,8 +22,9 @@ public class Main
 {
     public static void main(String args[])
     {
-		int option;
-		
+        Scanner scanner = new Scanner(System.in);
+        int option;
+
         do
         {
             System.out.println("Press 0 to register Prize tickets\n" +
@@ -35,34 +37,42 @@ public class Main
                     "Press 7 to ruffle tickets\n" +
                     "Press 8 to register sale\n" +
                     "Press 9 to list winners" +
-					"Type 10 to quit");
-					
-					option = scanner.nextInt();
-					
-					switch(option)
-					{
-						case 1:
-							//TO DO
-							break;
-						case 2:
-							FunctionLibrary func = new FunctionLibrary();
-							func.listPrizeTickets();
-							break;
-						case 3:
-							OompaLoompaSong song = new OompaLoompaSong();
-							song.sing();
-							break;
-						case 4:
-							FunctionLibrary func = new FunctionLibrary();
-							System.out.println("How many kids to register?");
-							func.registerKid(scanner.nextInt());
-							break;
-						case 0:				
-							break;
-						default:
-							System.out.println("Wrong option");
-			}
+                    "Type 10 to quit");
+
+            option = scanner.nextInt();
+
+            switch(option)
+            {
+                case 1:
+                    //TO DO
+                    break;
+                case 2:
+                    new FunctionLibrary().listPrizeTickets();
+                    break;
+                case 3:
+                    System.out.println("How many lines should it be?");
+                    System.out.println(new OompaLoompaSong(scanner.nextInt()).sing());
+                    break;
+                case 4:
+                    System.out.println("How many kids to register?");
+                    new FunctionLibrary().registerKid(scanner.nextInt());
+                    break;
+				case 5:
+                    break;
+				case 6:
+                    break;
+				case 7:
+                    break;
+				case 8:
+                    break;
+				case 9:
+                    break;
+                case 10:
+                    break;
+                default:
+                    System.out.println("Wrong option");
+            }
         }
-		while(true);
+        while(true);
     }
 }
