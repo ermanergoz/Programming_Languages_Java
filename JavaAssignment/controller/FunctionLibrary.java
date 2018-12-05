@@ -170,19 +170,18 @@ public class FunctionLibrary
             GoldenTicket goldenTicket = new GoldenTicket(code,ruffleDate);
 
             randomizedTicketIndex = randomIndex.nextInt(productList.size()-1);
-            productList.get(randomizedTicketIndex).prizeTicketSetter(goldenTicket);
+            productList.get(randomizedTicketIndex).setPrizeTicket(goldenTicket);
         }
     }
 	
 	public void listPrizeTickets()
-	
 	{
 		for(int i=0; i<productList.size();++i)
 		{
-			System.out.println(productList[i].getDescription()+
-			"Barcode: "+productList[i].getBarcode()+"\n");
+			System.out.println(productList.get(i).getDescription()+
+			"Barcode: "+productList.get(i).getBarcode()+"\n");
 			
-			if(productList[i].getPrizeTicket()!=null)
+			if(productList.get(i).getPrizeTicket()!=null)	//use get(i) instead of [i]
 				System.out.println("This product contains Golden Ticket!");
 			else
 				System.out.println("This product does not contain a Golden Ticket!");
