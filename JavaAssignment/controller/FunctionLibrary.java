@@ -173,4 +173,19 @@ public class FunctionLibrary
             productList.get(randomizedTicketIndex).prizeTicketSetter(goldenTicket);
         }
     }
+	
+	public void listPrizeTickets()
+	
+	{
+		for(int i=0; i<productList.size();++i)
+		{
+			System.out.println(productList[i].getDescription()+
+			"Barcode: "+productList[i].getBarcode()+"\n");
+			
+			if(productList[i].getPrizeTicket()!=null)
+				System.out.println("This product contains Golden Ticket!");
+			else
+				System.out.println("This product does not contain a Golden Ticket!");
+		}
+	}
 }

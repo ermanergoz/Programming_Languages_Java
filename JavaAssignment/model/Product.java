@@ -17,25 +17,25 @@ public class Product
     }
 
     //Setters
-    public void descriptionSetter(String _description)
+    public void setDescription(String _description)
     {
         this.description=_description;
     }
-    public void barcodeSetter(long _barcode)
+    public void setBarcode(long _barcode)
     {
         this.barcode=_barcode;
     }
-    public void serialNumberSetter(String _serialNumber)
+    public void setSerialNumber(String _serialNumber)
     {
         this.serialNumber=_serialNumber;
     }
-    public void prizeTicketSetter(GoldenTicket _prizeTicket)
+    public void setPrizeTicket(GoldenTicket _prizeTicket)
     {
         this.prizeTicket=_prizeTicket;
     }
 
     //Getters
-    public String descriptionGetter()
+    public String getDescription()
     {
         return description;
     }
@@ -43,11 +43,11 @@ public class Product
     {
         return barcode;
     }
-    public String serialNumberGetter()
+    public String getSerialNumber()
     {
         return serialNumber;
     }
-    public GoldenTicket prizeTicketGetter()
+    public GoldenTicket getPrizeTicket()
     {
         return prizeTicket;
     }
