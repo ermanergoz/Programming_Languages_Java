@@ -4,7 +4,6 @@ import beings.Kid;
 import beings.OompaLoompa;
 import model.GoldenTicket;
 import model.Product;
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;

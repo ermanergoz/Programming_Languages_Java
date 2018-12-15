@@ -1,22 +1,6 @@
-import beings.Kid;
-import beings.OompaLoompa;
-import model.GoldenTicket;
-import model.Product;
 import song.OompaLoompaSong;
 import controller.FunctionLibrary;
 import java.util.Scanner;
-
-/*
-1 - Register Prize tickets
-2 - List all prize tickets
-3 - List only raffled tickets
-4 - Create a new Oompa Loompa song
-5 - Register Beings
-6 - Register Products
-7 - Ruffle tickets
-8 - Register sale
-9 - List winners
-*/
 
 public class Main
 {

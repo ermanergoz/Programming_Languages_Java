@@ -1,6 +1,7 @@
 package beings;
 import model.Product;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Kid extends Beings
 {
