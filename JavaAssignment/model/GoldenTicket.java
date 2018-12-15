@@ -35,10 +35,10 @@ public class GoldenTicket
     }
 	
 	// If the current ticket has been already raffled
-	public boolean isRaffled(GoldenTicket ticket)
+	public boolean isRaffled()
 	{
 		Date currentDate = new Date();
-		return ticket.raffleDate.after(currentDate);	// tests if raffleDate is after currentDate
+		return currentDate.after(this.raffleDate);	// tests if raffleDate is after currentDate
 	}
 
 }

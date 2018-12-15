@@ -6,6 +6,7 @@ public class Product
     private long barcode;
     private String serialNumber;
     private GoldenTicket prizeTicket;
+    private boolean ticketState;    //if this is true then it has a golden ticket
 
     public Product () {}
     public Product (String _description, long _barcode, String _serialNumber, GoldenTicket _prizeTicket)
@@ -14,6 +15,7 @@ public class Product
         this.barcode=_barcode;
         this.serialNumber=_serialNumber;
         this.prizeTicket=_prizeTicket;
+        this.ticketState=false;
     }
 
     //Setters
@@ -32,6 +34,11 @@ public class Product
     public void setPrizeTicket(GoldenTicket _prizeTicket)
     {
         this.prizeTicket=_prizeTicket;
+
+    }
+    public void setTicketState(boolean _ticketState)
+    {
+        this.ticketState=_ticketState;
     }
 
     //Getters
@@ -50,5 +57,9 @@ public class Product
     public GoldenTicket getPrizeTicket()
     {
         return prizeTicket;
+    }
+    public boolean getTicketState()
+    {
+        return ticketState;
     }
 }

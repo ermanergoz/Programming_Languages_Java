@@ -42,7 +42,7 @@ public class OompaLoompaSong
         }
         catch (FileNotFoundException err)
         {
-            System.out.println("Oompaloompa is too sick to sing.\n" + err);
+            System.out.println("Oompaloompas are too sick to sing.\n" + err);
         }
 
         String song = "";
