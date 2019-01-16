@@ -1,0 +1,19 @@
+The list of the kids:
+Name: Osman Code: 123 Birthday: 10/10/1990 Birth Place: moon
+Name: Ali Code: 456 Birthday: 11/11/1991 Birth Place: mars
+Name: Veli Code: 789 Birthday: 12/12/1992 Birth Place: venus
+
+
+The list of the products:
+Chocolate Barcode: 12345 Serial No: 9876
+Chocolate Barcode: 12345 Serial No: 8765
+Gum Barcode: 678910 Serial No: 5678
+Milk Barcode: 11121214 Serial No: 6810
+Gum Barcode: 678945410 Serial No: 567465478
+
+
+The list of oompaloompas:
+Name: oompa1 Code: 1234 Height: 165 Favorite Food: Apple
+Name: oompa2 Code: 5678 Height: 175 Favorite Food: Banana
+Name: oompa3 Code: 91011 Height: 185 Favorite Food: Pineapple
+Name: oompa4 Code: 121314 Height: 181 Favorite Food: Milkshake

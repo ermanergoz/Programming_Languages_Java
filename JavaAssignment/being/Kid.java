@@ -1,9 +1,9 @@
-package beings;
+package being;
 import model.Product;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Kid extends Beings
+public class Kid extends Being
 {
     private String birthday;
     private List<Product> purchasedProducts/*=new ArrayList<>()*/;
@@ -14,7 +14,7 @@ public class Kid extends Beings
     {
 
         super(_code, _name);
-        this.purchasedProducts=new ArrayList<>();
+        this.purchasedProducts=new ArrayList<Product>();
         this.birthday = _birthday;
         this.purchasedProducts = _purchasedProducts;
         this.placeOfBirth = _placeOfBirth;
@@ -25,7 +25,7 @@ public class Kid extends Beings
     {
         return this.birthday;
     }
-    public List getListOfPurchasedProducts()
+    public List<Product> getListOfPurchasedProducts()
     {
         return this.purchasedProducts;
 
@@ -52,7 +52,7 @@ public class Kid extends Beings
     public void addPurchasedProduct(Product product)
     {
         if(purchasedProducts==null)
-            this.purchasedProducts=new ArrayList<>();
+            this.purchasedProducts=new ArrayList<Product>();
 
         this.purchasedProducts.add(product);
     }

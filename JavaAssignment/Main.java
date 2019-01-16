@@ -6,11 +6,9 @@ public class Main
 {
     public static void main(String args[])
     {
-        int songLines;
         Scanner scanner = new Scanner(System.in);
         FunctionLibrary function = new FunctionLibrary();
-        //3OompaLoompaSong song ;//= new OompaLoompaSong();
-
+        function.createInventory();
         int option;
 
         do
@@ -24,28 +22,29 @@ public class Main
 							 "Press 6 to register products\n" +
 							 "Press 7 to ruffle tickets\n" +
 							 "Press 8 to register sale\n" +
-							 "Press 9 to list winners\n");
+							 "Press 9 to list winners\n" +
+                             "Press 10 to quit\n");
 
             option = scanner.nextInt();
 
             switch(option)
             {
 
-                case 0: //works
+                case 0:
                     System.out.println("How many tickets do you want to register?");
                     function.registerPrizeTickets(scanner.nextInt());
                     break;
-                case 1: //works
+                case 1:
                     function.listPrizeTickets();
                     break;
-                case 2: //works
+                case 2:
                     function.listRaffledTickets();
                     break;
-                case 3:     //works
+                case 3:
                     System.out.println("How many lines should it have?");
                     System.out.println(new OompaLoompaSong(scanner.nextInt()).sing());
                     break;
-                case 4:     //works
+                case 4:
                     System.out.println("How many kids are there to register?");
                     function.registerKid(scanner.nextInt());
                     break;
@@ -53,20 +52,24 @@ public class Main
 					System.out.println("How many oompaloompas are there to register?");
                     function.registerOompaLoompa(scanner.nextInt());
                     break;
-				case 6:     //works
+				case 6:
 					System.out.println("How many products are there to register?");
                     function.registerProducts(scanner.nextInt());
                     break;
-				case 7: //works
+				case 7:
 					System.out.println("How many tickets do you want to raffle?");
                     function.ruffleTickets(scanner.nextInt());
                     break;
-				case 8:     //works
+				case 8:
 					System.out.println("Type the code of the kid who purchased stuff: ");
                     function.registerSale(scanner.nextInt());
                     break;
-				case 9: //works
+				case 9:
                     function.listWinners();
+                    break;
+                case 10:
+                    function.writeToFile();
+                    System.exit(0);
                     break;
                 default:
                     System.out.println("Wrong option");

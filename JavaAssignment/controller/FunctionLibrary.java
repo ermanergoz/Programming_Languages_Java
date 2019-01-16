@@ -1,9 +1,11 @@
 package controller;
 
-import beings.Kid;
-import beings.OompaLoompa;
+import being.Kid;
+import being.OompaLoompa;
 import model.GoldenTicket;
 import model.Product;
+
+import java.io.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -14,22 +16,10 @@ import java.util.Random;
 
 public class FunctionLibrary
 {
-    List<Kid> kidList = new ArrayList<>();
+    List<Kid> kidList = new ArrayList<Kid>();
 
     public void registerKid(int howMany)
     {
-        /*---------------------------------------------------------------------------------------------------------------------*/
-        Kid osman = new Kid(123, "Osman", "10/10/1990", null, "moon");
-        kidList.add(osman);
-
-        Kid ali = new Kid(456, "Ali", "11/11/1991", null, "mars");
-        kidList.add(ali);
-
-        Kid veli = new Kid(789, "Veli", "12/12/1992", null, "venus");
-        kidList.add(veli);
-        //(int _code, String _name, String _birthday, List<Product> _purchasedProducts, String _placeOfBirth)
-        /*---------------------------------------------------------------------------------------------------------------------*/
-
         Scanner userInput = new Scanner(System.in);
 
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
@@ -68,7 +58,7 @@ public class FunctionLibrary
         }
     }
 
-    List<OompaLoompa> oompaLoompaList = new ArrayList<>();
+    List<OompaLoompa> oompaLoompaList = new ArrayList<OompaLoompa>();
 
     public void registerOompaLoompa(int howMany)
     {
@@ -100,25 +90,10 @@ public class FunctionLibrary
         }
     }
 
-    List<Product> productList = new ArrayList<>();
+    List<Product> productList = new ArrayList<Product>();
 
     public void registerProducts(int howMany)
     {
-        /*---------------------------------------------------------------------------------------------------------------------*/
-        Product chocolate = new Product("Chocolate", 12345, "9876", null);
-        productList.add(chocolate);
-
-        Product chocolate2 = new Product("Chocolate", 12345, "8765", null);
-        productList.add(chocolate2);
-
-        Product gum = new Product("Gum", 678910, "5678", null);
-        productList.add(gum);
-
-        Product milk = new Product("Milk", 11121214, "6810", null);
-        productList.add(milk);
-        //(String _description, long _barcode, String _serialNumber, GoldenTicket _prizeTicket)
-        /*---------------------------------------------------------------------------------------------------------------------*/
-
         Scanner userInput = new Scanner(System.in);
 
         String description = "";
@@ -170,7 +145,7 @@ public class FunctionLibrary
                     break;
                 }
             }
-        } else System.out.println("you messed up");
+        } else System.out.println("user code is wrong");
     }
 
     public String codeGenerator()
@@ -267,7 +242,7 @@ public class FunctionLibrary
 
     public void listWinners()
     {
-        List<Product> purchasedProducts=new ArrayList<>();
+        List<Product> purchasedProducts=new ArrayList<Product>();
 
         if(kidList.size()!=0)
         {
@@ -295,21 +270,87 @@ public class FunctionLibrary
             System.out.println("There is no kid");
     }
 
-    public void test()
+    public void createInventory()
     {
-        System.out.println("List of registered kids: ");
-        for (int i = 0; i < kidList.size(); ++i)
+        Kid osman = new Kid(123, "Osman", "10/10/1990", null, "moon");
+        kidList.add(osman);
+
+        Kid ali = new Kid(456, "Ali", "11/11/1991", null, "mars");
+        kidList.add(ali);
+
+        Kid veli = new Kid(789, "Veli", "12/12/1992", null, "venus");
+        kidList.add(veli);
+
+        Product chocolate = new Product("Chocolate", 12345, "9876", null);
+        productList.add(chocolate);
+
+        Product chocolate2 = new Product("Chocolate", 12345, "8765", null);
+        productList.add(chocolate2);
+
+        Product gum = new Product("Gum", 678910, "5678", null);
+        productList.add(gum);
+
+        Product milk = new Product("Milk", 11121214, "6810", null);
+        productList.add(milk);
+
+        Product gum2 = new Product("Gum", 678945410, "567465478", null);
+        productList.add(gum2);
+
+        OompaLoompa oompa1 = new OompaLoompa(1234, "oompa1", 165, "Apple");
+        oompaLoompaList.add(oompa1);
+
+        OompaLoompa oompa2 = new OompaLoompa(5678, "oompa2", 175, "Banana");
+        oompaLoompaList.add(oompa2);
+
+        OompaLoompa oompa3 = new OompaLoompa(91011, "oompa3", 185, "Pineapple");
+        oompaLoompaList.add(oompa3);
+
+        OompaLoompa oompa4 = new OompaLoompa(121314, "oompa4", 181, "Milkshake");
+        oompaLoompaList.add(oompa4);
+    }
+
+    public void writeToFile()
+    {
+        PrintWriter writer = null;
+        try
         {
-            System.out.println("the kids are: ");
-            System.out.println(kidList.get(i).getCode());
+            writer = new PrintWriter("Output.txt");
+        }
+        catch (FileNotFoundException err)
+        {
+            System.out.println(err);
         }
 
-        System.out.println("List of registered products: ");
-        for (int i = 0; i < kidList.size(); ++i)
+        writer.println("The list of the kids:");
+        for(Kid kid : kidList)
         {
-            System.out.println("the products are: ");
-            System.out.println(productList.get(i).getDescription() + "  " + productList.get(i).getSerialNumber());
-            System.out.println(productList.get(i).getPrizeTicket());
+            writer.println("Name: "+kid.getName()+" Code: "+kid.getCode()+" Birthday: "+kid.getBirthday()+" Birth Place: "+kid.getPlaceOfBirth());
+
+            if(kid.getListOfPurchasedProducts()!=null)
+            {
+                writer.println("This kid bought following: ");
+                for(Product product : productList)
+                {
+                    writer.println(product.getDescription()+" Barcode: "+product.getBarcode()+" Serial No: "+product.getSerialNumber());
+                }
+            }
         }
+        writer.println("\n");
+
+        writer.println("The list of the products:");
+        for(Product product : productList)
+        {
+            writer.println(product.getDescription()+" Barcode: "+product.getBarcode()+" Serial No: "+product.getSerialNumber());
+            if(product.getTicketState())
+                writer.println("This product contains golden ticket!");
+        }
+        writer.println("\n");
+
+        writer.println("The list of oompaloompas:");
+        for(OompaLoompa oompaLoompa : oompaLoompaList)
+        {
+            writer.println("Name: "+oompaLoompa.getName()+" Code: "+oompaLoompa.getCode()+" Height: "+oompaLoompa.getHeight()+" Favorite Food: "+oompaLoompa.getFavoriteFood());
+        }
+        writer.close();
     }
 }

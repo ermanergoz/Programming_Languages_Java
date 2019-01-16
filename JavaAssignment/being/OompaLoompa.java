@@ -1,6 +1,6 @@
-package beings;
+package being;
 
-public class OompaLoompa extends Beings
+public class OompaLoompa extends Being
 {
     private int height;
     private String favoriteFood;

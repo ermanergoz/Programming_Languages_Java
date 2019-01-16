@@ -1,16 +1,16 @@
-package beings;
+package being;
 
-public class Beings
+public abstract class Being
 {
     private int code;
     private String name;
 
-    public Beings(int _code, String _name)
+    public Being(int _code, String _name)
     {
         this.code=_code;
         this.name=_name;
     }
-	
+
 	//Getters
 	public int getCode()
 	{
