@@ -1,18 +1,14 @@
 The list of the kids:
-Name: Osman Code: 123 Birthday: 10/10/1990 Birth Place: moon
-This kid bought following: 
-Chocolate Barcode: 12345 Serial No: 9876
-Name: Ali Code: 456 Birthday: 11/11/1991 Birth Place: mars
-Name: Veli Code: 789 Birthday: 12/12/1992 Birth Place: venus
+Name: Osman Code: 123 Birthday: Wed Oct 10 00:00:00 GMT 1990 Birth Place: moon
+Name: Ali Code: 456 Birthday: Mon Nov 11 00:00:00 GMT 1991 Birth Place: mars
+Name: Veli Code: 789 Birthday: Sat Dec 12 00:00:00 GMT 1992 Birth Place: venus
 
 
 The list of the products:
+Chocolate Barcode: 12345 Serial No: 9876
 Chocolate Barcode: 12345 Serial No: 8765
-This product contains golden ticket!
 Gum Barcode: 678910 Serial No: 5678
-This product contains golden ticket!
 Milk Barcode: 11121214 Serial No: 6810
-This product contains golden ticket!
 Gum Barcode: 678945410 Serial No: 567465478
 
 

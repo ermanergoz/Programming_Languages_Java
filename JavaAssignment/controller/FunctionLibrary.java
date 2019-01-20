@@ -6,7 +6,6 @@ import model.GoldenTicket;
 import model.Product;
 
 import java.io.*;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.ArrayList;
@@ -21,8 +20,6 @@ public class FunctionLibrary
     public void registerKid(int howMany)
     {
         Scanner userInput = new Scanner(System.in);
-
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
         String birthday = "";
 
         int code;
@@ -39,15 +36,8 @@ public class FunctionLibrary
             System.out.println("Type name of the kid: ");
             String name = userInput.nextLine();
 
-            System.out.println("Type birthday of the kid (dd/MM/yyyy): ");
+            System.out.println("Type birthday of the kid (yyyy-MM-dd): ");
             birthday = userInput.nextLine();
-            try
-            {
-                Date birthdayDate = dateFormat.parse(birthday);
-            } catch (ParseException e)
-            {
-                e.printStackTrace();
-            }
 
             System.out.println("Type birth place of the kid: ");
             placeOfBirth = userInput.nextLine();
@@ -176,7 +166,8 @@ public class FunctionLibrary
 
             randomizedTicketIndex = randomIndex.nextInt(productList.size());
 
-            while(productList.get(randomizedTicketIndex).getTicketState())  //to prevent inserting golden ticket multiple times to the same product
+            while(productList.get(randomizedTicketIndex).getPrizeTicket()!=null &&
+                    productList.get(randomizedTicketIndex).getPrizeTicket().isRaffled())  //to prevent inserting golden ticket multiple times to the same product
                 randomizedTicketIndex = randomIndex.nextInt(productList.size());
 
             productList.get(randomizedTicketIndex).setPrizeTicket(goldenTicket);
@@ -272,13 +263,13 @@ public class FunctionLibrary
 
     public void createInventory()
     {
-        Kid osman = new Kid(123, "Osman", "10/10/1990", null, "moon");
+        Kid osman = new Kid(123, "Osman", "1990-10-10", null, "moon");
         kidList.add(osman);
 
-        Kid ali = new Kid(456, "Ali", "11/11/1991", null, "mars");
+        Kid ali = new Kid(456, "Ali", "1991-11-11", null, "mars");
         kidList.add(ali);
 
-        Kid veli = new Kid(789, "Veli", "12/12/1992", null, "venus");
+        Kid veli = new Kid(789, "Veli", "1992-12-12", null, "venus");
         kidList.add(veli);
 
         Product chocolate = new Product("Chocolate", 12345, "9876", null);
@@ -307,6 +298,8 @@ public class FunctionLibrary
 
         OompaLoompa oompa4 = new OompaLoompa(121314, "oompa4", 181, "Milkshake");
         oompaLoompaList.add(oompa4);
+
+        System.out.println(veli.getBirthday());
     }
 
     public void writeToFile()
@@ -322,9 +315,10 @@ public class FunctionLibrary
         }
 
         writer.println("The list of the kids:");
+        SimpleDateFormat timeFormat = new SimpleDateFormat("yyyy-MM-dd");
         for(Kid kid : kidList)
         {
-            writer.println("Name: "+kid.getName()+" Code: "+kid.getCode()+" Birthday: "+kid.getBirthday()+" Birth Place: "+kid.getPlaceOfBirth());
+            writer.println("Name: "+kid.getName()+" Code: "+kid.getCode()+" Birthday: "+timeFormat.format(kid.getBirthday())+" Birth Place: "+kid.getPlaceOfBirth());
 
             if(kid.getListOfPurchasedProducts()!=null)
             {
@@ -341,7 +335,7 @@ public class FunctionLibrary
         for(Product product : productList)
         {
             writer.println(product.getDescription()+" Barcode: "+product.getBarcode()+" Serial No: "+product.getSerialNumber());
-            if(product.getTicketState())
+            if(product.getPrizeTicket()!=null&&product.getPrizeTicket().isRaffled())
                 writer.println("This product contains golden ticket!");
         }
         writer.println("\n");

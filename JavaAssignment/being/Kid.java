@@ -1,11 +1,15 @@
 package being;
 import model.Product;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class Kid extends Being
 {
-    private String birthday;
+    private Date birthday;
     private List<Product> purchasedProducts/*=new ArrayList<>()*/;
     String placeOfBirth;
 
@@ -15,13 +19,24 @@ public class Kid extends Being
 
         super(_code, _name);
         this.purchasedProducts=new ArrayList<Product>();
-        this.birthday = _birthday;
+
+        SimpleDateFormat timeFormat = new SimpleDateFormat("yyyy-MM-dd");
+        try
+        {
+            this.birthday=timeFormat.parse(_birthday);
+        }
+        catch(ParseException err)
+        {
+            System.out.println("parse error");
+        }
+
+        //this.birthday = _birthday;
         this.purchasedProducts = _purchasedProducts;
         this.placeOfBirth = _placeOfBirth;
     }
 
     //Getters
-    public String getBirthday()
+    public Date getBirthday()
     {
         return this.birthday;
     }
@@ -36,7 +51,7 @@ public class Kid extends Being
     }
 
     //Setters
-    public void setBirthday(String _birthday)
+    public void setBirthday(Date _birthday)
     {
         this.birthday=_birthday;
     }

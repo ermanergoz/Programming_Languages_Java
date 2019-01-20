@@ -58,8 +58,4 @@ public class Product
     {
         return prizeTicket;
     }
-    public boolean getTicketState()
-    {
-        return ticketState;
-    }
 }
