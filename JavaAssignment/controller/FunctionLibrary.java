@@ -329,7 +329,7 @@ public class FunctionLibrary
             if(kid.getListOfPurchasedProducts()!=null)
             {
                 writer.println("This kid bought following: ");
-                for(Product product : productList)
+                for(Product product : kid.getListOfPurchasedProducts())
                 {
                     writer.println(product.getDescription()+" Barcode: "+product.getBarcode()+" Serial No: "+product.getSerialNumber());
                 }
