@@ -51,9 +51,17 @@ public class Kid extends Being
     }
 
     //Setters
-    public void setBirthday(Date _birthday)
+    public void setBirthday(String _birthday)
     {
-        this.birthday=_birthday;
+        SimpleDateFormat timeFormat = new SimpleDateFormat("yyyy-MM-dd");
+        try
+        {
+            this.birthday=timeFormat.parse(_birthday);
+        }
+        catch(ParseException err)
+        {
+            System.out.println("parse error");
+        }
     }
     public void setListOfPurchasedProducts(List<Product> _purchasedProducts)
     {

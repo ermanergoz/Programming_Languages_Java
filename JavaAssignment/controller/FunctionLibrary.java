@@ -299,7 +299,6 @@ public class FunctionLibrary
         OompaLoompa oompa4 = new OompaLoompa(121314, "oompa4", 181, "Milkshake");
         oompaLoompaList.add(oompa4);
 
-        System.out.println(veli.getBirthday());
     }
 
     public void writeToFile()
